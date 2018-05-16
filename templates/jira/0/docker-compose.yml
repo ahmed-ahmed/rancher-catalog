@@ -12,6 +12,7 @@ services:
     tty: true
     labels:
       io.rancher.container.pull_image: always
+      host: host2
   jira:
     privileged: true
     image: cptactionhank/atlassian-jira:latest
