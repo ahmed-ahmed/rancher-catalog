@@ -1,0 +1,5 @@
+.catalog:
+  name: "Jira"
+  version: "0.1"
+  description: "Jira"
+  uuid: "jira-1"

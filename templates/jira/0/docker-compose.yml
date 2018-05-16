@@ -1,0 +1,27 @@
+version: '2'
+services:
+  jira-db:
+    image: postgres:alpine
+    hostname: jira-db
+    environment:
+      POSTGRES_PASSWORD: elng.net
+      POSTGRES_DB: jira
+    stdin_open: true
+    volumes:
+    - /home/a13600/jira/data-base:/var/lib/postgresql/data
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  jira:
+    privileged: true
+    image: cptactionhank/atlassian-jira:latest
+    stdin_open: true
+    tty: true
+    links:
+    - jira-db:jira-db
+    ports:
+    - 6000:8080/tcp
+    labels:
+      name: jira
+      host: host2
+      io.rancher.container.pull_image: always
